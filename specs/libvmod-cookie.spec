@@ -37,11 +37,16 @@ make
 
 %install
 cd "%{_builddir}/libvmod-cookie"
-make install DESTDIR=%{buildroot}%{_prefix}
+make install DESTDIR=%{buildroot}
+rm %{buildroot}%{_libdir}/varnish/vmods/libvmod_cookie.la
 
 %files
+%doc %{_docdir}/libvmod-cookie/LICENSE
+%doc %{_docdir}/libvmod-cookie/README.rst
+%doc %{_mandir}/man3/vmod_cookie.3.gz
+%{_libdir}/varnish/vmods/libvmod_cookie.so
 
 %changelog
-* Tue Jul 06 2010 Silas Sewell <silas@sewell.ch> - 1.2.6-1
+* Thu Oct 15 2015 Hiroaki Nakamura <hnakamur@gmail.com> - 20150915-1
 - Initial package
 
